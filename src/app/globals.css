@@ -15,22 +15,37 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
 body {  
-  background-color: white;  
+  background: linear-gradient(90deg, #33cc33, #007acc); /* Green to Blue gradient */  
   display: flex;  
   justify-content: center;  
   align-items: center;  
   height: 100vh;  
   margin: 0;  
+  position: relative; /* Position relative for pseudo-elements */  
 }  
 
 .container {  
-  border: 5px solid;  
-  border-color: #33cc33 #007acc; /* Parrot and Blue shade */  
-  padding: 40px;  
+  position: relative; /* Position relative for inner content */  
+  z-index: 1; /* Ensure content is above the pseudo-elements */  
+  width: 600px; /* Fixed width for the container */  
+  padding: 40px; /* Padding for content */  
   border-radius: 10px;  
+  background-color: white; /* Background color for the container */  
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
+}  
+
+.container::before {  
+  content: '';  
+  position: absolute;  
+  top: 0;  
+  left: -10px; /* Adjust to match border width */  
+  right: -10px; /* Adjust to match border width */  
+  bottom: 0;  
+  border: 10px solid; /* Increased border width */  
+  border-color: #33cc33 #007acc; /* Parrot and Blue shade */  
+  border-radius: 10px; /* Match the container's border radius */  
+  z-index: -1; /* Place behind the container */  
 }  
 
 .heading {  
@@ -44,16 +59,43 @@ body {
   display: block;   
 }  
 
+.row {  
+  display: flex; /* Flexbox ka istemal */  
+  justify-content: space-between; /* Columns ke beech space */  
+}  
+
+.column {  
+  flex: 1; /* Columns ko equal width dena */  
+  margin-right: 20px; /* Right margin for spacing */  
+}  
+
+.column.right {  
+  margin-left: 20px; /* Left margin for right column */  
+}  
+
+.column:last-child {  
+  margin-right: 0; /* Last column ka margin hata dena */  
+}  
+
 .input, .textarea {  
   width: 100%;   
   padding: 10px;   
   margin: 10px 0;  
   border: 1px solid #ccc;   
   border-radius: 4px;  
+  background-color: #d3d3d3; /* Darker gray shading */  
 }  
 
 .textarea {  
   height: 100px;   
+}  
+
+.button-container {  
+  display: flex; /* Flexbox ka istemal */  
+  justify-content: center; /* Center align karna */  
+  margin-top: 20px; /* Button ke upar space dena */  
+  flex-direction: column; /* Aligning elements in a column */  
+  align-items: center; /* Centering items horizontally */  
 }  
 
 .submit-button {  
@@ -64,12 +106,7 @@ body {
   border-radius: 5px;   
   cursor: pointer;   
 }  
+
 .submit-button:hover {  
   opacity: 0.9;   
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }
