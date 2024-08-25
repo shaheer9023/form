@@ -16,14 +16,56 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+body {  
+  background-color: white;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  height: 100vh;  
+  margin: 0;  
+}  
+
+.container {  
+  border: 5px solid;  
+  border-color: #33cc33 #007acc; /* Parrot and Blue shade */  
+  padding: 40px;  
+  border-radius: 10px;  
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
+}  
+
+.heading {  
+  text-align: left;   
+  font-weight: bold;  
+  font-size: 24px;  
+}  
+
+.label {  
+  margin-top: 20px;   
+  display: block;   
+}  
+
+.input, .textarea {  
+  width: 100%;   
+  padding: 10px;   
+  margin: 10px 0;  
+  border: 1px solid #ccc;   
+  border-radius: 4px;  
+}  
+
+.textarea {  
+  height: 100px;   
+}  
+
+.submit-button {  
+  background: linear-gradient(90deg, #33cc33, #007acc);  
+  color: white;   
+  border: none;   
+  padding: 10px 20px;   
+  border-radius: 5px;   
+  cursor: pointer;   
+}  
+.submit-button:hover {  
+  opacity: 0.9;   
 }
 
 @layer utilities {
