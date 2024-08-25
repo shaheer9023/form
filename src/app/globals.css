@@ -1,37 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@tailwind base;  
+@tailwind components;  
+@tailwind utilities;  
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+:root {  
+  --foreground-rgb: 0, 0, 0;  
+  --background-start-rgb: 214, 219, 220;  
+  --background-end-rgb: 255, 255, 255;  
+}  
+
+@media (prefers-color-scheme: dark) {  
+  :root {  
+    --foreground-rgb: 255, 255, 255;  
+    --background-start-rgb: 0, 0, 0;  
+    --background-end-rgb: 0, 0, 0;  
+  }  
+}  
+
 body {  
-  background: linear-gradient(90deg, #33cc33, #007acc); /* Green to Blue gradient */  
+  background: linear-gradient(90deg, #33cc33, #007acc); /* Gradient background */  
   display: flex;  
   justify-content: center;  
   align-items: center;  
   height: 100vh;  
   margin: 0;  
-  position: relative; /* Position relative for pseudo-elements */  
+  position: relative;  
 }  
 
 .container {  
-  position: relative; /* Position relative for inner content */  
-  z-index: 1; /* Ensure content is above the pseudo-elements */  
-  width: 600px; /* Fixed width for the container */  
-  padding: 40px; /* Padding for content */  
+  position: relative;  
+  z-index: 1;  
+  width: 100%; /* Change to 100% for responsiveness */  
+  max-width: 600px; /* Maximum width for better layout */  
+  padding: 40px;  
   border-radius: 10px;  
-  background-color: white; /* Background color for the container */  
+  background-color: white;  
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
 }  
 
@@ -39,13 +42,13 @@ body {
   content: '';  
   position: absolute;  
   top: 0;  
-  left: -10px; /* Adjust to match border width */  
-  right: -10px; /* Adjust to match border width */  
+  left: -10px;  
+  right: -10px;  
   bottom: 0;  
-  border: 10px solid; /* Increased border width */  
-  border-color: #33cc33 #007acc; /* Parrot and Blue shade */  
-  border-radius: 10px; /* Match the container's border radius */  
-  z-index: -1; /* Place behind the container */  
+  border: 10px solid;  
+  border-color: #33cc33 #007acc;  
+  border-radius: 10px;  
+  z-index: -1;  
 }  
 
 .heading {  
@@ -60,21 +63,23 @@ body {
 }  
 
 .row {  
-  display: flex; /* Flexbox ka istemal */  
-  justify-content: space-between; /* Columns ke beech space */  
+  display: flex;  
+  flex-wrap: wrap; /* Allow wrapping on small screens */  
+  justify-content: space-between;  
 }  
 
 .column {  
-  flex: 1; /* Columns ko equal width dena */  
-  margin-right: 20px; /* Right margin for spacing */  
+  flex: 1;  
+  margin-right: 10px;  
+  min-width: 200px; /* Minimum width to prevent too small columns */  
 }  
 
 .column.right {  
-  margin-left: 20px; /* Left margin for right column */  
+  margin-left: 10px;  
 }  
 
 .column:last-child {  
-  margin-right: 0; /* Last column ka margin hata dena */  
+  margin-right: 0;  
 }  
 
 .input, .textarea {  
@@ -83,7 +88,7 @@ body {
   margin: 10px 0;  
   border: 1px solid #ccc;   
   border-radius: 4px;  
-  background-color: #d3d3d3; /* Darker gray shading */  
+  background-color: #d3d3d3;  
 }  
 
 .textarea {  
@@ -91,11 +96,11 @@ body {
 }  
 
 .button-container {  
-  display: flex; /* Flexbox ka istemal */  
-  justify-content: center; /* Center align karna */  
-  margin-top: 20px; /* Button ke upar space dena */  
-  flex-direction: column; /* Aligning elements in a column */  
-  align-items: center; /* Centering items horizontally */  
+  display: flex;  
+  justify-content: center;  
+  margin-top: 20px;  
+  flex-direction: column;  
+  align-items: center;  
 }  
 
 .submit-button {  
@@ -109,4 +114,11 @@ body {
 
 .submit-button:hover {  
   opacity: 0.9;   
-}
+}  
+
+@media (max-width: 768px) {  
+  /* Responsive adjustments for smaller screens */  
+  .container {  
+    padding: 20px; /* Reduce padding on smaller screens */  
+  }  
+}  
